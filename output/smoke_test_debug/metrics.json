@@ -1,0 +1,36 @@
+{
+  "anomaly_metrics":{
+    "anomaly_rate":0.0,
+    "total_anomalies":0,
+    "total_normal":0
+  },
+  "batch_id":"batch_d3bd5923",
+  "execution":{
+    "duration_sec":4.484452724456787,
+    "error_policy":"skip",
+    "failed_runs":10,
+    "mode":"sequential",
+    "success_rate":0.0,
+    "successful_runs":0,
+    "total_runs":10
+  },
+  "performance_metrics":{
+    "avg_duration_sec":0.0,
+    "max_duration_sec":0.0,
+    "min_duration_sec":0.0
+  },
+  "priority_metrics":{
+    "critical":0,
+    "error":0,
+    "high":0,
+    "low":0,
+    "medium":0,
+    "none":0
+  },
+  "research_metrics":{
+    "avg_similarity_hits":0.0,
+    "similarity_hit_rate":0.0
+  },
+  "roi_metrics":null,
+  "timestamp":"2025-12-01T21:17:29.424599"
+}
