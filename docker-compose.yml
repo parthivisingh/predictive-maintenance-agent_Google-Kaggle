@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  maintenance-tools:
+    build: .
+    container_name: predictive-maintenance-tools
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - ./models:/app/models:rw
+      - ./logs:/app/logs:rw
+    environment:
+      - LOG_LEVEL=INFO
+      - CACHE_TTL_SECONDS=3600
+      - DB_PATH=/app/data/maintenance_history.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "from tools.api_wrappers import analyze_sensors; exit(0 if analyze_sensors(1, 100, {'sensor_T30': 1590.0})['success'] else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+    depends_on:
+      - maintenance-tools
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+volumes:
+  prometheus-data:
+  grafana-storage:
