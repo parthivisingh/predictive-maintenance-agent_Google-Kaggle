@@ -887,6 +887,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**Built with**: Python 3.9+ | Google Gemini API | scikit-learn | FastAPI | SQLite
+**Built with**: Python 3.11+ | Google Gemini API | scikit-learn | FastAPI | SQLite
 
 **For questions and support**, please open an issue on GitHub or contact the maintainers.
