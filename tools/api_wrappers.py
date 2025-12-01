@@ -354,7 +354,7 @@ def calculate_roi_simple(
 
         return {
             "success": True,
-            "estimated_preventive_cost": round(result.preventive_cost, 2),
+            "estimated_preventive_cost": round(result.preventive_cost.total_cost, 2),
             "estimated_reactive_cost": round(result.expected_reactive_cost, 2),
             "expected_savings": round(result.savings, 2),
             "roi_percentage": round(result.roi_percentage, 2),

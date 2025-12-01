@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "unit_id": 1,
+  "time_cycle": 100,
+  "pipeline_results": {
+    "diagnostic": {
+      "agent": "diagnostic_agent",
+      "success": true,
+      "anomaly_detected": true,
+      "anomaly_score": 0.8398,
+      "severity": "high",
+      "confidence": 0.6,
+      "affected_sensors": [
+        "sensor_T50",
+        "sensor_T24",
+        "sensor_P30",
+        "sensor_Ps30"
+      ],
+      "top_recommendation": "High temperature detected - inspect for overheating",
+      "all_recommendations": [
+        "High temperature detected - inspect for overheating",
+        "Pressure anomaly detected - inspect seals and valves",
+        "URGENT: Schedule immediate inspection"
+      ],
+      "method_used": "combined",
+      "timestamp": "2025-12-01T20:16:21.877809",
+      "error": null
+    },
+    "research": {
+      "agent": "research_agent",
+      "success": true,
+      "matches_found": 0,
+      "similar_failures": [],
+      "timestamp": "2025-12-01T20:16:21.887539",
+      "error": null
+    },
+    "recommendation": {
+      "agent": "recommendation_agent",
+      "success": true,
+      "roi_analysis": {
+        "estimated_preventive_cost": 12485.0,
+        "estimated_reactive_cost": 49774.95,
+        "expected_savings": 37289.95,
+        "roi_percentage": 298.68,
+        "recommendation": "preventive"
+      },
+      "work_order": {
+        "work_order_id": "WO-20251201201621",
+        "priority": "Priority.HIGH",
+        "issue_summary": "Anomaly detected in 4 sensor(s): sensor_T50, sensor_T24, sensor_P30, sensor_Ps30. Severity: high. Anomaly score: 0.00.",
+        "recommended_actions": [
+          "Perform detailed diagnostic inspection"
+        ],
+        "estimated_cost": 0,
+        "estimated_duration": 6.0
+      },
+      "timestamp": "2025-12-01T20:16:21.892948",
+      "error": null,
+      "message": null
+    }
+  },
+  "final_decision": {
+    "action_required": true,
+    "priority": "Priority.HIGH",
+    "work_order_id": "WO-20251201201621",
+    "summary": "Anomaly detected in 4 sensor(s): sensor_T50, sensor_T24, sensor_P30, sensor_Ps30. Severity: high. Anomaly score: 0.00.",
+    "estimated_cost": 0,
+    "recommended_actions": [
+      "Perform detailed diagnostic inspection"
+    ]
+  },
+  "execution_metadata": {
+    "total_time_ms": 2161.78,
+    "agents_called": [
+      "diagnostic_agent",
+      "research_agent",
+      "recommendation_agent"
+    ],
+    "errors_encountered": []
+  },
+  "timestamp": "2025-12-01T20:16:21.892959"
+}
